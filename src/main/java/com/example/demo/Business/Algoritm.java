@@ -16,7 +16,8 @@ public class Algoritm {
     public String description;
     @Column(columnDefinition = "int")
     public int timesUsed;
-
+    @Column(columnDefinition = "BIGINT")
+    public double review;
     @OneToMany(
             mappedBy= "algoritm",
             cascade=CascadeType.ALL,
