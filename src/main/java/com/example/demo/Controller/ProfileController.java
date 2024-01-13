@@ -5,8 +5,6 @@ import com.example.demo.Model.ProfileModel;
 import com.example.demo.Model.ResultModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.messaging.handler.annotation.MessageMapping;
-import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -25,15 +23,4 @@ public class ProfileController {
             return ResponseEntity.ok(null);
         }
     }
-
-    @MessageMapping("/getResults")
-    @SendTo("/topic/results")
-    public ResultModel[] getResults(int id) {
-        try {
-            return pl.GetResultsByAlgoritmId(id);
-        } catch (Exception ex) {
-            return null;
-        }
-    }
-
 }
